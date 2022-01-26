@@ -1,19 +1,13 @@
 ---
 title: "Lab2b_CommunityOrdination"
 author: "Steven Cognac"
-date: "1/24/2022"
+date: "1/26/2022"
 output: 
   html_document:
     code_folding: show
     toc: true
     toc_float: true
 ---
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-
-
-```
 
 # Learning Objectives
 In this lab, you will play with unsupervised classification techniques while working with ecological community datasets.
@@ -30,14 +24,18 @@ In this lab, you will play with unsupervised classification techniques while wor
 ## 1.1 Principal Components Analysis (PCA)
 ### 1.1.1 Prerequisite
  -  - Prerequisite is to read Chapter 17 (linked above) in entirety.
-```{r}
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
 # load R packages
 librarian::shelf(
   dplyr, ggplot2, h2o)
 
 # set seed for reproducible results
 set.seed(42)
+```
 
+```{R}
 # get data
 url <- "https://koalaverse.github.io/homlr/data/my_basket.csv"
 my_basket <- readr::read_csv(url)
