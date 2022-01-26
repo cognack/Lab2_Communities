@@ -1,0 +1,53 @@
+---
+title: "Lab2b_CommunityOrdination"
+author: "Steven Cognac"
+date: "1/24/2022"
+output: 
+  html_document:
+    code_folding: show
+    toc: true
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+
+```
+
+# Learning Objectives
+In this lab, you will play with unsupervised classification techniques while working with ecological community datasets.
+  
+ - **Ordination** orders sites near each other based on similarity. It is a multivariate analysis technique used to effectively collapse dependent axes into fewer dimensions, i.e. dimensionality reduction.
+    - **Principal Components Analyses (PCA)** is the most common and oldest technique that assumes linear relationships between axes. You will follow a non-ecological example from [Chapter 17 Principal Components Analysis | Hands-On Machine Learning with R](https://bradleyboehmke.github.io/HOML/pca.html) to learn about this commonly used technique.
+    - **Non-metric MultiDimensional Scaling (NMDS)** allows for non-linear relationships. This ordination technique is implemented in the R package [vegan](https://cran.r-project.org/web/packages/vegan/index.html). You’ll use an ecological dataset, species and environment from lichen pastures that reindeer forage upon, with excerpts from the vegantutor vignette (source) to apply these techniques:
+      - **Unconstrained ordination** on species using NMDS;
+      - Overlay with environmental gradients; and
+      - **Constrained ordination** on species and environment using another ordination technique, canonical correspondence analysis (CCA)
+  
+  
+# Ordination
+## 1.1 Principal Components Analysis (PCA)
+### 1.1.1 Prerequisite
+ -  - Prerequisite is to read Chapter 17 (linked above) in entirety.
+```{r}
+# load R packages
+librarian::shelf(
+  dplyr, ggplot2, h2o)
+
+# set seed for reproducible results
+set.seed(42)
+
+# get data
+url <- "https://koalaverse.github.io/homlr/data/my_basket.csv"
+my_basket <- readr::read_csv(url)
+dim(my_basket)
+
+my_basket
+
+```
+
+
+
+
+
